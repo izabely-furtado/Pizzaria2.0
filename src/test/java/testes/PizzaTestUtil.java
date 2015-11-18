@@ -39,72 +39,72 @@ public class PizzaTestUtil {
     
     @Test
     public void criaCebola() {
-        FabricaPizza val = new FabricaPizza();
-        Cebola resultado = new Cebola();
-        assertEquals(resultado.getNome(), val.criaCebola().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Cebola resultado = new Cebola(val);
+        assertSame(resultado.getNome(), val.criaCebola(val).getNome());
     }
     
     @Test
     public void criaMassaCone() {
-        FabricaPizza val = new FabricaPizza();
-        Cone resultado = new Cone();
-        assertEquals(resultado.getNome(), val.criaMassaCone().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Cone resultado = new Cone(val);
+        assertEquals(resultado.getNome(), val.criaMassaCone(val).getNome());
     }
         
     @Test
     public void criaMassaTrad() {
-        FabricaPizza val = new FabricaPizza();
-        Tradicional resultado = new Tradicional();
-        assertEquals(resultado.getNome(), val.criaMassaTrad().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Tradicional resultado = new Tradicional(val);
+        assertEquals(resultado.getNome(), val.criaMassaTrad(val).getNome());
     }
     
     @Test
     public void criaMolhoTomate() {
-        FabricaPizza val = new FabricaPizza();
-        MolhoTomate resultado = new MolhoTomate();
-        assertEquals(resultado.getNome(), val.criaMolhoTomate().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        MolhoTomate resultado = new MolhoTomate(val);
+        assertEquals(resultado.getNome(), val.criaMolhoTomate(val).getNome());
     }
     
     @Test
     public void criaPresunto() {
-        FabricaPizza val = new FabricaPizza();
-        Presunto resultado = new Presunto();
-        assertEquals(resultado.getNome(), val.criaPresunto().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Presunto resultado = new Presunto(val);
+        assertEquals(resultado.getNome(), val.criaPresunto(val).getNome());
     }
     
     @Test
     public void criaQueijoGorg() {
-        FabricaPizza val = new FabricaPizza();
-        Gorgonzola resultado = new Gorgonzola();
-        assertEquals(resultado.getNome(), val.criaQueijoGorg().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Gorgonzola resultado = new Gorgonzola(val);
+        assertEquals(resultado.getNome(), val.criaQueijoGorg(val).getNome());
     }
 
     @Test
     public void criaQueijoMarg() {
-        FabricaPizza val = new FabricaPizza();
-        Margherita resultado = new Margherita();
-        assertEquals(resultado.getNome(), val.criaQueijoMarg().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Margherita resultado = new Margherita(val);
+        assertEquals(resultado.getNome(), val.criaQueijoMarg(val).getNome());
     }
     
     @Test
     public void criaQueijoParm() {
-        FabricaPizza val = new FabricaPizza();
-        Parmesao resultado = new Parmesao();
-        assertEquals(resultado.getNome(), val.criaQueijoParm().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Parmesao resultado = new Parmesao(val);
+        assertEquals(resultado.getNome(), val.criaQueijoParm(val).getNome());
     }
     
     @Test
     public void criaQueijoProv() {
-        FabricaPizza val = new FabricaPizza();
-        Provolone resultado = new Provolone();
-        assertEquals(resultado.getNome(), val.criaQueijoProv().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Provolone resultado = new Provolone(val);
+        assertEquals(resultado.getNome(), val.criaQueijoProv(val).getNome());
     }
 
     @Test
     public void criaQueijoMuss() {
-        FabricaPizza val = new FabricaPizza();
-        Mussarela resultado = new Mussarela();
-        assertEquals(resultado.getNome(), val.criaQueijoMuss().getNome());
+        FabricaPizza val = new FabricaPizza(0F);
+        Mussarela resultado = new Mussarela(val);
+        assertEquals(resultado.getNome(), val.criaQueijoMuss(val).getNome());
     }
 
     @AfterClass

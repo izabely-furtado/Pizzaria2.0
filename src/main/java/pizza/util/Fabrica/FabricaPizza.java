@@ -21,14 +21,14 @@ import pizza.cdp.massa.*;
  *
  * @author IzabelyFurtado
  */
-public abstract class FabricaPizza implements FabricaIngredientes {
+public class FabricaPizza implements FabricaIngredientes {
 
     protected static FabricaPizza fabPizza;
     protected int codMussarela;
     protected int cod4Queijos;
     protected float preco;
     
-    protected FabricaPizza(float preco){
+    public FabricaPizza(float preco){
         this.preco = preco;
     }
     
