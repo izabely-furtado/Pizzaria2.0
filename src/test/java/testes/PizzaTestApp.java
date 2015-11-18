@@ -12,17 +12,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pizza.aplication.PizzaFacade;
 import pizza.aplication.Pizzaria;
 import pizza.util.Bridge.BridgeCone4Queijos;
 import pizza.util.Bridge.BridgeConeMussarela;
 import pizza.util.Bridge.BridgePizza;
 import pizza.util.Bridge.BridgeTrad4Queijos;
 import pizza.util.Bridge.BridgeTradMussarela;
-import pizza.util.Builder.Cone4QueijosBuilder;
-import pizza.util.Builder.ConeMussarelaBuilder;
-import pizza.util.Builder.PizzaBuilder;
-import pizza.util.Builder.Trad4QueijosBuilder;
-import pizza.util.Builder.TradMussarelaBuilder;
 
 /**
  *
@@ -41,28 +37,28 @@ public class PizzaTestApp {
     public void escolhaPizzaConeMussarela(){
         int val = 1;
         BridgePizza resultado = new BridgeConeMussarela();
-        assertEquals(resultado.getPrecoFinal(), Pizzaria.escolhaPizzaCone(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaCone(val, 1).getPrecoFinal(), 0.1F);
     }
     
     @Test
     public void escolhaPizzaCone4Queijos(){
         int val = 2;
         BridgePizza resultado = new BridgeCone4Queijos();
-        assertEquals(resultado.getPrecoFinal(), Pizzaria.escolhaPizzaCone(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaCone(val, 1).getPrecoFinal(), 0.1F);
     }
         
     @Test
     public void escolhaPizzaTradMussarela(){
         int val = 1;
         BridgePizza resultado = new BridgeTradMussarela();
-        assertEquals(resultado.getPrecoFinal(), Pizzaria.escolhaPizzaTradicional(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaTradicional(val, 1).getPrecoFinal(), 0.1F);
     }
     
     @Test
     public void escolhaPizzaTrad4Queijos(){
         int val = 2;
         BridgePizza resultado = new BridgeTrad4Queijos();
-        assertEquals(resultado.getPrecoFinal(), Pizzaria.escolhaPizzaTradicional(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaTradicional(val, 1).getPrecoFinal(), 0.1F);
     }
      
     @AfterClass

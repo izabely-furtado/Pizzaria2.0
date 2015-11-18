@@ -7,14 +7,6 @@
 package pizza.aplication;
 
 import java.util.Scanner;
-import pizza.util.Bridge.BridgeCone4Queijos;
-import pizza.util.Bridge.BridgeConeMussarela;
-import pizza.util.Bridge.BridgePizza;
-import pizza.util.Bridge.BridgeTrad4Queijos;
-import pizza.util.Bridge.BridgeTradMussarela;
-import pizza.util.Builder.PizzaBuilder;
-import pizza.util.Builder.PizzaProduct;
-import pizza.util.Builder.PizzariaDirector;
 
 /**
  *
@@ -33,10 +25,10 @@ public class Pizzaria {
             int maisRecheio = Pizzaria.leMaisRecheio();
             if (maisRecheio == 1){
                 int quantRecheio = Pizzaria.leQuantRecheio();
-                System.out.println(Pizzaria.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, quantRecheio));
+                System.out.println(PizzaFacade.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, quantRecheio));
             }
             else{
-                System.out.println(Pizzaria.escolhaPizzaCone(opcaoRecheio, 1));
+                System.out.println(PizzaFacade.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, 1));
             }
             opcaoMassa = Pizzaria.leOpcoesMassa();
         }
@@ -77,55 +69,6 @@ public class Pizzaria {
         Scanner lerOpcao = new Scanner(System.in);
         int opcao = lerOpcao.nextInt();
         return opcao;
-    }
-    
-    public static void criando(PizzaBuilder pizzaEscolhida){
-        PizzariaDirector pizzaria = new PizzariaDirector(pizzaEscolhida);
-        pizzaria.construirPizza();
-        PizzaProduct pizza = pizzaria.getPizza();
-        System.out.println(pizza);
-    }
-
-    public static BridgePizza escolhaPizzaCone(int opcaoRecheio, int quantRecheio) {
-        if (opcaoRecheio == 1){
-            return new BridgeConeMussarela(quantRecheio);
-        }
-        else if (opcaoRecheio == 2){
-            return new BridgeCone4Queijos(quantRecheio);
-        }
-        else {
-            throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
-                                     + "Ulisses Tavares \n"
-                                     + "(Escolha coisas possíveis)");
-        }
-    }
-
-    public static BridgePizza escolhaPizzaTradicional(int opcaoRecheio, int quantRecheio) {
-        if (opcaoRecheio == 1){
-            return new BridgeTradMussarela(quantRecheio);
-        }
-        else if (opcaoRecheio == 2){
-            return new BridgeTrad4Queijos(quantRecheio);
-        }
-        else {
-            throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
-                                     + "Ulisses Tavares \n"
-                                     + "(Escolha coisas possíveis)");
-        }
-    }
-
-    private static BridgePizza escolhaMassaRecheioQuant(int opcaoMassa, int opcaoRecheio, int quantRecheio) {
-        if (opcaoMassa == 1){
-            return Pizzaria.escolhaPizzaCone(opcaoRecheio, quantRecheio);
-        }
-        else if (opcaoMassa == 2){
-            return Pizzaria.escolhaPizzaTradicional(opcaoRecheio, quantRecheio);
-        }
-        else{
-            throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
-                                     + "Ulisses Tavares \n"
-                                     + "(Escolha coisas possíveis)");
-        }
     }
     
 }
