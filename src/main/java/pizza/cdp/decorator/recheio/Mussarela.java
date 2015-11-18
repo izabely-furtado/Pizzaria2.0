@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package pizza.cdp.recheio;
+package pizza.cdp.decorator.recheio;
 
 import pizza.util.Fabrica.FabricaPizza;
 
@@ -12,10 +12,11 @@ import pizza.util.Fabrica.FabricaPizza;
  *
  * @author IzabelyFurtado
  */
-public class Provolone extends Queijo {
+public class Mussarela extends Queijo {
 
-    public Provolone(FabricaPizza pizza) {
-        super("Queijo Provolone", pizza);
+    public Mussarela(FabricaPizza pizza) {
+        super("Queijo Mussarela", pizza);
     }
+   
     
 }

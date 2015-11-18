@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pizza.cdp;
+package pizza.cdp.decorator;
 
 import pizza.util.Fabrica.FabricaPizza;
 

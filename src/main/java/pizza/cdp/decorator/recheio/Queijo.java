@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 
-package pizza.cdp.massa;
+package pizza.cdp.decorator.recheio;
 
-import pizza.cdp.Massa;
+import pizza.cdp.decorator.Recheio;
 import pizza.util.Fabrica.FabricaPizza;
 
 /**
  *
  * @author IzabelyFurtado
  */
-public class Cone extends Massa {
+public abstract class Queijo extends Recheio {
 
-    public Cone(FabricaPizza pizza) {
-        super("Massa Cone", pizza, 10F);
+    public Queijo(String nome, FabricaPizza pizza) {
+        super(nome, pizza, 1F);
     }
     
 }

@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 
-package pizza.cdp.recheio;
+package pizza.cdp.decorator.recheio;
 
-import pizza.cdp.Recheio;
+import pizza.cdp.decorator.Recheio;
 import pizza.util.Fabrica.FabricaPizza;
 
 /**
  *
  * @author IzabelyFurtado
  */
-public class Cebola extends Recheio{
+public class Presunto extends Recheio {
 
-    public Cebola(FabricaPizza pizza) {
-        super("Cebola", pizza, 3F);
+    public Presunto(FabricaPizza pizza) {
+        super("Presunto", pizza, 3F);
     }
+    
     
 }

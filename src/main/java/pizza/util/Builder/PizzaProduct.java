@@ -6,7 +6,7 @@
 package pizza.util.Builder;
 
 import pizza.util.Fabrica.FabricaPizza;
-import pizza.cdp.Massa;
+import pizza.cdp.decorator.Massa;
 
 /**
  *
@@ -17,11 +17,11 @@ public class PizzaProduct {
     Massa massaEscolhida;
     FabricaPizza recheio;
 
-    public Massa getPizzaComMassa() {
+    public FabricaPizza getPizzaComMassa() {
         return this.massaEscolhida;
     }
 
-    public FabricaPizza getPizzaSemMassa() {
+    public FabricaPizza getPizzaRecheio() {
         return this.recheio;
     }
 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package pizza.cdp;
+package pizza.cdp.decorator.recheio;
 
 import pizza.util.Fabrica.FabricaPizza;
 
@@ -12,10 +12,11 @@ import pizza.util.Fabrica.FabricaPizza;
  *
  * @author IzabelyFurtado
  */
-public abstract class Recheio extends Ingrediente {
+public class Gorgonzola extends Queijo {
 
-    public Recheio(String nome, FabricaPizza pizza, float preco) {
-        super(nome, pizza, preco);
+    public Gorgonzola(FabricaPizza pizza) {
+        super("Queijo Gorgonzola", pizza);
     }
     
+
 }

@@ -6,8 +6,8 @@
 
 package pizza.util.Builder;
 
-import pizza.cdp.Massa;
-import pizza.cdp.massa.Tradicional;
+import pizza.cdp.decorator.Massa;
+import pizza.cdp.decorator.massa.Tradicional;
 import pizza.util.Fabrica.FabricaPizzaMussarela;
 
 /**

@@ -6,12 +6,12 @@
 
 package pizza.util.Fabrica;
 
-import pizza.cdp.recheio.MolhoTomate;
-import pizza.cdp.recheio.Gorgonzola;
-import pizza.cdp.recheio.Margherita;
-import pizza.cdp.recheio.Mussarela;
-import pizza.cdp.recheio.Parmesao;
-import pizza.cdp.recheio.Provolone;
+import pizza.cdp.decorator.recheio.MolhoTomate;
+import pizza.cdp.decorator.recheio.Gorgonzola;
+import pizza.cdp.decorator.recheio.Margherita;
+import pizza.cdp.decorator.recheio.Mussarela;
+import pizza.cdp.decorator.recheio.Parmesao;
+import pizza.cdp.decorator.recheio.Provolone;
 
 /**
  *

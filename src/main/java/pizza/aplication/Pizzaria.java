@@ -6,14 +6,15 @@
 
 package pizza.aplication;
 
-import pizza.util.Builder.Cone4QueijosBuilder;
+import java.util.Scanner;
+import pizza.util.Bridge.BridgeCone4Queijos;
+import pizza.util.Bridge.BridgeConeMussarela;
+import pizza.util.Bridge.BridgePizza;
+import pizza.util.Bridge.BridgeTrad4Queijos;
+import pizza.util.Bridge.BridgeTradMussarela;
 import pizza.util.Builder.PizzaBuilder;
-import pizza.util.Builder.TradMussarelaBuilder;
-import pizza.util.Builder.ConeMussarelaBuilder;
 import pizza.util.Builder.PizzaProduct;
 import pizza.util.Builder.PizzariaDirector;
-import pizza.util.Builder.Trad4QueijosBuilder;
-import java.util.Scanner;
 
 /**
  *
@@ -24,31 +25,58 @@ public class Pizzaria {
     public static void escolha() {
         Scanner lerOpcao = new Scanner(System.in);
         //Receitas ou sair
-        System.out.println("Digite a massa desejada:    \n"
-                         + "1 - Cone                    \n"
-                         + "2 - Tradicional             \n"
-                         + "3 - Sair                      ");
-        int opcaoMassa = lerOpcao.nextInt();
+        int opcaoMassa = Pizzaria.leOpcoesMassa();
         while (opcaoMassa == 1 || opcaoMassa == 2) {
-            System.out.println("Digite a pizza desejada:\n"
-                             + "1 - Massarela           \n"
-                             + "2 - 4 Queijos             ");
-            int opcaoRecheio = lerOpcao.nextInt();
-            if (opcaoMassa == 1){
-                criando(Pizzaria.escolhaPizzaCone(opcaoRecheio));
+            //escolhe recheio
+            int opcaoRecheio = Pizzaria.leOpcoesRecheio();
+            //pergunta se quer mais recheio
+            int maisRecheio = Pizzaria.leMaisRecheio();
+            if (maisRecheio == 1){
+                int quantRecheio = Pizzaria.leQuantRecheio();
+                System.out.println(Pizzaria.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, quantRecheio));
             }
-            else {
-                criando(Pizzaria.escolhaPizzaTradicional(opcaoRecheio));
+            else{
+                System.out.println(Pizzaria.escolhaPizzaCone(opcaoRecheio, 1));
             }
-            System.out.println("Digite a massa desejada:\n"
-                             + "1 - Cone                \n"
-                             + "2 - Tradicional         \n"
-                             + "3 - Sair                  ");
-            opcaoMassa = lerOpcao.nextInt();
-            
+            opcaoMassa = Pizzaria.leOpcoesMassa();
         }
         //se escolher sair o programa para
         System.out.println(" Arrivederci (º3º) ");    
+    }
+    
+    public static int leOpcoesMassa(){
+        System.out.println("Digite a massa desejada:\n"
+                             + "1 - Cone                \n"
+                             + "2 - Tradicional         \n"
+                             + "3 - Sair                  ");
+        Scanner lerOpcao = new Scanner(System.in);
+        int opcaoMassa = lerOpcao.nextInt();
+        return opcaoMassa;
+    }
+    
+    public static int leOpcoesRecheio(){
+        System.out.println("Digite a pizza desejada:\n"
+                             + "1 - Massarela           \n"
+                             + "2 - 4 Queijos             ");
+        Scanner lerOpcao = new Scanner(System.in);
+        int opcaoMassa = lerOpcao.nextInt();
+        return opcaoMassa;
+    }
+    
+    public static int leMaisRecheio(){
+        System.out.println("Quer mais Recheio?  :\n"
+                             + "1 - Sim           \n"
+                             + "2 - Não           \n");
+        Scanner lerOpcao = new Scanner(System.in);
+        int opcao = lerOpcao.nextInt();
+        return opcao;
+    }
+    
+    public static int leQuantRecheio(){
+        System.out.println("Quer quanto mais de Recheio? ");
+        Scanner lerOpcao = new Scanner(System.in);
+        int opcao = lerOpcao.nextInt();
+        return opcao;
     }
     
     public static void criando(PizzaBuilder pizzaEscolhida){
@@ -58,12 +86,12 @@ public class Pizzaria {
         System.out.println(pizza);
     }
 
-    public static PizzaBuilder escolhaPizzaCone(int opcaoRecheio) {
+    public static BridgePizza escolhaPizzaCone(int opcaoRecheio, int quantRecheio) {
         if (opcaoRecheio == 1){
-            return ConeMussarelaBuilder.getInstance();
+            return new BridgeConeMussarela(quantRecheio);
         }
         else if (opcaoRecheio == 2){
-            return Cone4QueijosBuilder.getInstance();
+            return new BridgeCone4Queijos(quantRecheio);
         }
         else {
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
@@ -72,14 +100,28 @@ public class Pizzaria {
         }
     }
 
-    public static PizzaBuilder escolhaPizzaTradicional(int opcaoRecheio) {
+    public static BridgePizza escolhaPizzaTradicional(int opcaoRecheio, int quantRecheio) {
         if (opcaoRecheio == 1){
-            return TradMussarelaBuilder.getInstance();
+            return new BridgeTradMussarela(quantRecheio);
         }
         else if (opcaoRecheio == 2){
-            return Trad4QueijosBuilder.getInstance();
+            return new BridgeTrad4Queijos(quantRecheio);
         }
         else {
+            throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
+                                     + "Ulisses Tavares \n"
+                                     + "(Escolha coisas possíveis)");
+        }
+    }
+
+    private static BridgePizza escolhaMassaRecheioQuant(int opcaoMassa, int opcaoRecheio, int quantRecheio) {
+        if (opcaoMassa == 1){
+            return Pizzaria.escolhaPizzaCone(opcaoRecheio, quantRecheio);
+        }
+        else if (opcaoMassa == 2){
+            return Pizzaria.escolhaPizzaTradicional(opcaoRecheio, quantRecheio);
+        }
+        else{
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
                                      + "Ulisses Tavares \n"
                                      + "(Escolha coisas possíveis)");

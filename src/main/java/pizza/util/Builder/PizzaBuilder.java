@@ -10,7 +10,7 @@ package pizza.util.Builder;
  *
  * @author IzabelyFurtado
  */
-public abstract class PizzaBuilder {
+public abstract class PizzaBuilder implements IPizzaBuilder{
     protected PizzaProduct pizza;
     protected static PizzaBuilder pizzaBuilder;
     protected int codCone4Queijos;
@@ -42,8 +42,10 @@ public abstract class PizzaBuilder {
         return codTrad4Queijos;
     }
     
+    @Override
     public abstract void buildMassa();
     
+    @Override
     public abstract void buildRecheio();
     
     public PizzaProduct getPizza(){

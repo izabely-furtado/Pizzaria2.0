@@ -6,7 +6,7 @@
 
 package pizza.util.Builder;
 
-import pizza.cdp.massa.Tradicional;
+import pizza.cdp.decorator.massa.Tradicional;
 import pizza.util.Fabrica.FabricaPizza4Queijos;
 
 /**
