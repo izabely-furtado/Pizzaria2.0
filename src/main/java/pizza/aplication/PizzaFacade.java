@@ -22,12 +22,13 @@ public class PizzaFacade {
         System.out.println(pizza);
     }
 
-    public static BridgePizza escolhaPizzaCone(int opcaoRecheio, int quantRecheio) {
+    public static BridgePizza escolhaPizzaCone(int opcaoRecheio, int quantRecheio, int quantPizza) {
+        PizzaFlyweightFactory factory = new PizzaFlyweightFactory();
         if (opcaoRecheio == 1){
-            return new BridgeConeMussarela(quantRecheio);
+            return factory.getStandardConeMussarela(quantPizza, quantRecheio);
         }
         else if (opcaoRecheio == 2){
-            return new BridgeCone4Queijos(quantRecheio);
+            return factory.getStandardCone4Queijos(quantPizza, quantRecheio);
         }
         else {
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
@@ -36,12 +37,13 @@ public class PizzaFacade {
         }
     }
 
-    public static BridgePizza escolhaPizzaTradicional(int opcaoRecheio, int quantRecheio) {
+    public static BridgePizza escolhaPizzaTradicional(int opcaoRecheio, int quantRecheio, int quantPizza) {
+        PizzaFlyweightFactory factory = new PizzaFlyweightFactory();
         if (opcaoRecheio == 1){
-            return new BridgeTradMussarela(quantRecheio);
+            return factory.getStandardTradMussarela(quantPizza, quantRecheio);
         }
         else if (opcaoRecheio == 2){
-            return new BridgeTrad4Queijos(quantRecheio);
+            return factory.getStandardTrad4Queijos(quantPizza, quantRecheio);
         }
         else {
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
@@ -50,12 +52,26 @@ public class PizzaFacade {
         }
     }
 
-    public static BridgePizza escolhaMassaRecheioQuant(int opcaoMassa, int opcaoRecheio, int quantRecheio) {
+    public static BridgePizza escolhaMassaQuantRecheio(int opcaoMassa, int opcaoRecheio, int quantRecheio) {
         if (opcaoMassa == 1){
-            return PizzaFacade.escolhaPizzaCone(opcaoRecheio, quantRecheio);
+            return PizzaFacade.escolhaPizzaCone(opcaoRecheio, quantRecheio, 1);
         }
         else if (opcaoMassa == 2){
-            return PizzaFacade.escolhaPizzaTradicional(opcaoRecheio, quantRecheio);
+            return PizzaFacade.escolhaPizzaTradicional(opcaoRecheio, quantRecheio, 1);
+        }
+        else{
+            throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
+                                     + "Ulisses Tavares \n"
+                                     + "(Escolha coisas possíveis)");
+        }
+    }
+    
+    public static BridgePizza escolhaMassaRecheioQuant(int opcaoMassa, int opcaoRecheio, int quantRecheio, int quantPizza) {
+        if (opcaoMassa == 1){
+            return PizzaFacade.escolhaPizzaCone(opcaoRecheio, quantRecheio, quantPizza);
+        }
+        else if (opcaoMassa == 2){
+            return PizzaFacade.escolhaPizzaTradicional(opcaoRecheio, quantRecheio, quantPizza);
         }
         else{
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"

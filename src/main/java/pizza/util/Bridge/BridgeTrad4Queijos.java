@@ -16,8 +16,8 @@ public class BridgeTrad4Queijos extends BridgePizza{
         super();
     }
     
-    public BridgeTrad4Queijos(int quantRecheio){
-        super(quantRecheio);
+    public BridgeTrad4Queijos(int quantRecheio, int quantPizza){
+        super(quantRecheio, quantPizza);
     }
     
     @Override

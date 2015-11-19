@@ -11,7 +11,7 @@ import pizza.util.Builder.PizzaBuilder;
  *
  * @author 20121bsi0040
  */
-public abstract class BridgePizza {
+public abstract class BridgePizza implements IBridgePizza{
     protected PizzaBuilder pizza;
     protected float precoFinal;
     
@@ -20,14 +20,14 @@ public abstract class BridgePizza {
         this.precoFinal = this.pizza.getPizza().getPizzaComMassa().getPreco();
     }
     
-    public BridgePizza(int quantRecheio){
+    public BridgePizza(int quantRecheio, int quantPizza){
         if (quantRecheio > 0 && quantRecheio < 13){
             this.fazerPizza();
             for(int i = 0; i < quantRecheio; i++){
                 this.maisRecheio();
             }
             float precoMassa = this.pizza.getPizza().getPizzaComMassa().getPreco() - this.pizza.getPizza().getPizzaRecheio().getPreco();
-            this.precoFinal = precoMassa + this.pizza.getPizza().getPizzaRecheio().getPreco() * quantRecheio;
+            this.precoFinal = (precoMassa + this.pizza.getPizza().getPizzaRecheio().getPreco() * quantRecheio) * quantPizza;
         }
         else{
             throw new RuntimeException("Só um palpite: dando tudo errado, grite.\n"
@@ -40,7 +40,13 @@ public abstract class BridgePizza {
         return this.precoFinal;
     }
     
+    public void setPrecoFinal(float preco){
+        this.precoFinal = preco;
+    }
+    
+    @Override
     public abstract void maisRecheio();
+    @Override
     public abstract void fazerPizza();
     
     @Override

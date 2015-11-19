@@ -25,10 +25,10 @@ public class Pizzaria {
             int maisRecheio = Pizzaria.leMaisRecheio();
             if (maisRecheio == 1){
                 int quantRecheio = Pizzaria.leQuantRecheio();
-                System.out.println(PizzaFacade.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, quantRecheio));
+                System.out.println(PizzaFacade.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, quantRecheio, 12));
             }
             else{
-                System.out.println(PizzaFacade.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, 1));
+                System.out.println(PizzaFacade.escolhaMassaRecheioQuant(opcaoMassa, opcaoRecheio, 1, 12));
             }
             opcaoMassa = Pizzaria.leOpcoesMassa();
         }
@@ -46,6 +46,13 @@ public class Pizzaria {
         return opcaoMassa;
     }
     
+        public static int leQuantasPizzas(){
+        System.out.println("Digite quantas pizzas desse tipo deseja:\n");
+        Scanner lerOpcao = new Scanner(System.in);
+        int opcaoQuant = lerOpcao.nextInt();
+        return opcaoQuant;
+    }
+
     public static int leOpcoesRecheio(){
         System.out.println("Digite a pizza desejada:\n"
                              + "1 - Massarela           \n"

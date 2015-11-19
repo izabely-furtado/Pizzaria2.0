@@ -37,28 +37,28 @@ public class PizzaTestApp {
     public void escolhaPizzaConeMussarela(){
         int val = 1;
         BridgePizza resultado = new BridgeConeMussarela();
-        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaCone(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaCone(val, 1, 1).getPrecoFinal(), 0.1F);
     }
     
     @Test
     public void escolhaPizzaCone4Queijos(){
         int val = 2;
         BridgePizza resultado = new BridgeCone4Queijos();
-        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaCone(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaCone(val, 1, 1).getPrecoFinal(), 0.1F);
     }
         
     @Test
     public void escolhaPizzaTradMussarela(){
         int val = 1;
         BridgePizza resultado = new BridgeTradMussarela();
-        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaTradicional(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaTradicional(val, 1, 1).getPrecoFinal(), 0.1F);
     }
     
     @Test
     public void escolhaPizzaTrad4Queijos(){
         int val = 2;
         BridgePizza resultado = new BridgeTrad4Queijos();
-        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaTradicional(val, 1).getPrecoFinal(), 0.1F);
+        assertEquals(resultado.getPrecoFinal(), PizzaFacade.escolhaPizzaTradicional(val, 1, 1).getPrecoFinal(), 0.1F);
     }
      
     @AfterClass

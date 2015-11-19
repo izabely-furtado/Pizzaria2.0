@@ -16,8 +16,8 @@ public class BridgeConeMussarela extends BridgePizza{
         super();
     }
     
-    public BridgeConeMussarela(int quantRecheio){
-        super(quantRecheio);
+    public BridgeConeMussarela(int quantRecheio, int quantPizza){
+        super(quantRecheio, quantPizza);
     }
     
     @Override
